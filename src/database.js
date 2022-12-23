@@ -1,11 +1,15 @@
 const mongoose = require('mongoose')
+const MONGODB_URI = require('./config')
+
 
 mongoose.set('strictQuery', true)
 
-const mongoDataBase = async() => {
+
+
+const mongoDataBase = async () => {
 
     try {
-        const db = await mongoose.connect("mongodb+srv://david-mongodb-crud:1SR33lHmBXIXgaok@cluster0.9z7mbt1.mongodb.net/?retryWrites=true&w=majority")
+        const db = await mongoose.connect(MONGODB_URI)
         console.log('DB connceted to', db.connection.name)
     } catch (error) {
         console.log(error)
